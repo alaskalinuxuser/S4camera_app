@@ -50,6 +50,19 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:padding="10dp"
+        android:id="@+id/stop"
+        android:clickable="true"
+        android:onClick="stopRecord"
+        android:src="@drawable/stop"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
         android:id="@+id/theTime"
         android:clickable="true"
         android:onClick="setTime"

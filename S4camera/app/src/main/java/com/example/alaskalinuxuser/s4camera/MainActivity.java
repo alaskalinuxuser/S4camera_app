@@ -132,6 +132,34 @@ package com.example.alaskalinuxuser.s4camera;
             camera = null;
         }
 
+        public void stopRecord (View stopView) throws IOException {
+
+            String[] stopNow = {"su", "-c", "pkill -2 screenrecord"};
+            Runtime.getRuntime().exec(stopNow);
+
+            ImageView stopTime = (ImageView)findViewById(R.id.stop);
+            stopTime.setVisibility(View.INVISIBLE);
+
+            //Rename file.
+            File from      = new File("/sdcard/Pictures/video.mp4");
+            File to        = new File(String.format(Locale.ENGLISH, "/sdcard/Pictures/%d.mp4", System.currentTimeMillis()));
+            from.renameTo(to);
+            //Set boolean.
+
+            isRecording=false;
+
+            //define icons
+            ImageView nowRecord = (ImageView)findViewById(R.id.record);
+            ImageView nowCapture = (ImageView)findViewById(R.id.capture);
+            ImageView nowTime = (ImageView)findViewById(R.id.theTime);
+            //Show icons.
+            nowCapture.setVisibility(View.VISIBLE);
+            nowRecord.setVisibility(View.VISIBLE);
+            nowTime.setVisibility(View.VISIBLE);
+
+
+        }
+
         public void setTime (View timeView) throws IOException {
 
             //ImageView nowRecord = (ImageView)findViewById(R.id.record);
@@ -168,13 +196,13 @@ package com.example.alaskalinuxuser.s4camera;
                 nowRecord.setVisibility(View.INVISIBLE);
                 nowTime.setVisibility(View.INVISIBLE);
 
+                ImageView stopTime = (ImageView)findViewById(R.id.stop);
+                stopTime.setVisibility(View.VISIBLE);
+
                 //make it run later....
                 Runnable r = new Runnable() {
                     @Override
                     public void run(){
-                        Toast recToast = Toast.makeText(getApplicationContext(), "Recording Complete!", Toast.LENGTH_SHORT);
-                        recToast.setGravity(Gravity.RIGHT | Gravity.CENTER, 0, 0);
-                        recToast.show();
 
                         //Rename file.
                         File from      = new File("/sdcard/Pictures/video.mp4");
@@ -216,13 +244,13 @@ package com.example.alaskalinuxuser.s4camera;
                 nowRecord.setVisibility(View.INVISIBLE);
                 nowTime.setVisibility(View.INVISIBLE);
 
+                ImageView stopTime = (ImageView)findViewById(R.id.stop);
+                stopTime.setVisibility(View.VISIBLE);
+
                 //make it run later....
                 Runnable s = new Runnable() {
                     @Override
                     public void run(){
-                        Toast recToast = Toast.makeText(getApplicationContext(), "Recording Complete!", Toast.LENGTH_SHORT);
-                        recToast.setGravity(Gravity.RIGHT | Gravity.CENTER, 0, 0);
-                        recToast.show();
 
                         //Rename file.
                         File from      = new File("/sdcard/Pictures/video.mp4");
