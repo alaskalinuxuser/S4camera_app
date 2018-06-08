@@ -1,5 +1,10 @@
 # S4camera_app
 
+#################
+This repository has been archived and is read only. Please go to https://gitlab.com/alaskalinuxuser for an open and editable version of this repository. All of my repositories have been copied to GitLab. Please post any issues, comments, or work there. Thank you - AlaskaLinuxUser.
+#################
+
+
 Nougat presented some new challenges for the S4. One of those challenges was that the camera could take pictures, but not record video.
 
 Here is my workaround for that. The usual methods did not work, so I leveraged su (root) to do a low level recording. You can choose 1 minute or 3 minute recordings. There is no audio at this time. The record button records a video. The picture button takes a photo. All files are saved in the /sdcard/Pictures folder.
